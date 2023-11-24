@@ -1,10 +1,10 @@
 version: 0.0
 os: linux
-files: 
+files:
   - source: /
-    destination: /home/ubuntu/blogprojectdrf
+    destination: /home/ubuntu/dreamshala-backend
 permissions:
-  - object: /home/ubuntu/blogprojectdrf
+  - object: /home/ubuntu/dreamshala-backend
     owner: ubuntu
     group: ubuntu
 hooks:
@@ -33,5 +33,4 @@ hooks:
       - location: scripts/start_app.sh
         timeout: 300
         runas: ubuntu
-  
-  
+
