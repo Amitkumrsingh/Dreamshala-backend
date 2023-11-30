@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'dreamshala.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dreamshala-backend',
-        'USER': 'dreamshala',
+        'NAME': 'dreamshala',
+        'USER': 'dshala',
         'PASSWORD': 'Dreamshala#2023',
-        'HOST': 'dreamshala-backend.c3ypzskok0a2.ap-south-1.rds.amazonaws.com',
+        'HOST': 'dreamshala.c3ypzskok0a2.ap-south-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
