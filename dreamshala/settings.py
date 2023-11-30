@@ -27,7 +27,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '65.0.61.85']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.235.115.71']
 
 
 
