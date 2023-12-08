@@ -21,7 +21,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 class ProfileAPIView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user_data = {
