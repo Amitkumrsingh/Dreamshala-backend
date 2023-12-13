@@ -1,34 +1,21 @@
-from rest_framework import generics
+# api/views.py
+from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticated
-from .models import CustomUser
-from .serializers import UserSerializer
-
-
-class UserListCreateView(generics.ListCreateAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-
-class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-
-# views.py
-
-from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+from rest_framework import status
+from django.contrib.auth import logout
 
-class ProfileAPIView(APIView):
-    # permission_classes = [IsAuthenticated]
+class UserListCreateView(ObtainAuthToken):
+    # This view handles user sign-in (login) using the ObtainAuthToken view
+    # It returns an authentication token upon successful login
+    pass
 
-    def get(self, request):
-        user_data = {
-            'username': request.user.username,
-            'email': request.user.email,
-            'password': request.user.password
-        }
-        return Response(user_data)
+class UserLogoutView(APIView):
+    # This view handles user logout
+    permission_classes = [IsAuthenticated]
 
-
+    def post(self, request):
+        # Perform logout logic here
+        logout(request)
+        return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
