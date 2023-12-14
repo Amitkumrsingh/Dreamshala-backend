@@ -27,5 +27,10 @@ class UserLogoutView(APIView):
 
     def post(self, request):
         # Perform logout logic here
-        logout(request)
-        return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+        user = request.user
+        if user.is_authenticated:
+            # Perform logout for the authenticated user
+            logout(request)
+            return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'detail': 'User is not authenticated.'}, status=status.HTTP_401_UNAUTHORIZED)
