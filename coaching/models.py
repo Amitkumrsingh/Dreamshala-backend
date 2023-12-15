@@ -73,9 +73,9 @@ class CoachingStep1(models.Model):
     # Role in Institute
     role = models.CharField(blank=True, null=True)
     # Email ID
-    email = models.EmailField(blank=True, null=True)
+    email_mang = models.EmailField(blank=True, null=True)
     # Contact Number
-    contact_number = models.CharField(blank=True, null=True)
+    contact_number_mang = models.CharField(blank=True, null=True)
 
     #4. Coaching Details
     # Coaching name

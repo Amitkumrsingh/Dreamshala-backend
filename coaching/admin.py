@@ -4,7 +4,7 @@ from .models import CoachingStep1, CoachingStep2, CoachingStep3
 
 @admin.register(CoachingStep1)
 class CoachingStep1Admin(admin.ModelAdmin):
-    list_display = ['logo', 'short_description', 'detailed_description', 'coaching_main_website']
+    list_display = ['logo', 'short_description', 'detailed_description', 'coaching_main_website','contact_number','email' ]
 
 @admin.register(CoachingStep2)
 class CoachingStep2Admin(admin.ModelAdmin):
@@ -47,7 +47,6 @@ class CoachingStep3Admin(admin.ModelAdmin):
         'coaching_step2',
         'photo',
         'photo_description',
-
         'photo_keywords_meta_tags',
         'video_link',
         'video_file',
@@ -66,7 +65,6 @@ class CoachingStep3Admin(admin.ModelAdmin):
         'review_description',
         'review_links',
         'review_photo_or_video',
-
         'students_in_batch',
         'total_students_in_coaching',
         'number_of_faculty',

@@ -38,7 +38,7 @@ CORS_ALLOWED_ORIGINS = [
 
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.235.115.71','*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.235.115.71','*','https://api.ifnotnowthenwhen.in']
 
 # Application definition
 
