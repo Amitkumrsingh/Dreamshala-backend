@@ -31,8 +31,11 @@ class Course(models.Model):
 class Exam(models.Model):
     name = models.CharField(blank=True, null=True)
 
+class PhotoCategory(models.Model):
+    name = models.CharField(max_length=50,blank=True, null=True)
+
 class Facility(models.Model):
-    name = models.CharField(blank=True, null=True)
+    name = models.CharField(max_length=50,blank=True, null=True)
 
 class CoachingStep1(models.Model):
     # Step 1: Basic Details
@@ -180,19 +183,44 @@ class CoachingStep2(models.Model):
 class CoachingStep3(models.Model):
     coaching_step2 = models.OneToOneField(CoachingStep2, on_delete=models.CASCADE, primary_key=True)
 
-    # Coaching Details
-    coaching_name = models.CharField(blank=True, null=True)
-    coaching_gstin = models.CharField(blank=True, null=True)
-    year_of_establishment = models.PositiveIntegerField(blank=True, null=True)
-    pan_card_no = models.CharField(blank=True, null=True)
-    upload_pan_card = models.FileField(upload_to='coaching_pan_cards/', blank=True, null=True)
-    address_line_1 = models.TextField(blank=True, null=True)
-    address_line_2 = models.TextField(blank=True, null=True)
-    landmark_locality = models.CharField(blank=True, null=True)
-    pincode = models.PositiveIntegerField(blank=True, null=True)
-    state = models.ForeignKey(State, on_delete=models.CASCADE, related_name='coaching_state', blank=True, null=True)
-    city = models.CharField(blank=True, null=True)
-    location_latitude = models.FloatField(blank=True, null=True)
-    location_longitude = models.FloatField(blank=True, null=True)
-    # ... add other fields for step 3
+
+    # Photos
+    photo = models.ImageField(upload_to='photos/', blank=True, null=True)
+    photo_description = models.TextField(max_length=250, blank=True, null=True)
+    photo_category = models.ManyToManyField('PhotoCategory', blank=True)
+    photo_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
+
+    # Videos
+    video_link = models.URLField(blank=True, null=True)
+    video_file = models.FileField(upload_to='videos/', blank=True, null=True)
+    video_description = models.TextField(max_length=250, blank=True, null=True)
+    video_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
+    video_thumbnail = models.ImageField(upload_to='video_thumbnails/', blank=True, null=True)
+
+    # Reviews
+    review_name = models.CharField(max_length=10, blank=True, null=True)
+    year_of_study = models.CharField(max_length=10, choices=[('year1', 'Year 1'), ('year2', 'Year 2')], blank=True, null=True)
+    course_taken = models.CharField(max_length=50, choices=[('course1', 'Course 1'), ('course2', 'Course 2')], blank=True, null=True)
+    overall_rating = models.IntegerField(choices=range(1, 6), blank=True, null=True)
+    competitive_environment = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
+    faculty_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
+    infrastructure_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
+    overall_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
+    peer_learning_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
+    study_material_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
+    review_description = models.TextField(max_length=500, blank=True, null=True)
+    review_links = models.URLField(blank=True, null=True)
+    review_photo_or_video = models.FileField(upload_to='review_files/', blank=True, null=True)
+
+    # Checklist
+    available_facilities = models.ManyToManyField('Facility', blank=True)
+    students_in_batch = models.CharField(max_length=5, blank=True, null=True)
+    total_students_in_coaching = models.CharField(max_length=5, blank=True, null=True)
+    number_of_faculty = models.CharField(max_length=5, blank=True, null=True)
+
+    # Frequently Asked Questions
+    faq_question = models.TextField(blank=True, null=True)
+    faq_answer = models.TextField(blank=True, null=True)
+
+
 

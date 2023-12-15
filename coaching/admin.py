@@ -43,4 +43,33 @@ class CoachingStep2Admin(admin.ModelAdmin):
 
 @admin.register(CoachingStep3)
 class CoachingStep3Admin(admin.ModelAdmin):
-    list_display = ['coaching_name', 'coaching_gstin', 'year_of_establishment', 'pan_card_no', 'address_line_1', 'address_line_2', 'pincode']
+    list_display = [
+        'coaching_step2',
+        'photo',
+        'photo_description',
+
+        'photo_keywords_meta_tags',
+        'video_link',
+        'video_file',
+        'video_description',
+        'video_keywords_meta_tags',
+        'video_thumbnail',
+        'review_name',
+        'year_of_study',
+        'course_taken',
+        'overall_rating',
+        'competitive_environment',
+        'faculty_rating',
+        'infrastructure_rating',
+        'study_material_rating',
+        'peer_learning_rating',
+        'review_description',
+        'review_links',
+        'review_photo_or_video',
+
+        'students_in_batch',
+        'total_students_in_coaching',
+        'number_of_faculty',
+        'faq_question',
+        'faq_answer',
+        ]
