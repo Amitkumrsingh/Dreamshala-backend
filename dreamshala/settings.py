@@ -32,6 +32,10 @@ SECRET_KEY = 'django-insecure-uhz2p#$9%g)+04vm&e19&g$8u!i^eu8m-(*)*o1b(*gjkh&681
 DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
 
+CORS_ALLOWED_ORIGINS = [
+ "https://api.ifnotnowthenwhen.in",
+]
+
 
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.235.115.71','*']
@@ -63,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'dreamshala.urls'
