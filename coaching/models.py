@@ -124,14 +124,14 @@ class CoachingStep1(models.Model):
     # Address Line 2
     address_line_2_loc = models.CharField(blank=True, null=True , default='Hyderabad')
     # Landmark/Locality
-    landmark = models.CharField(blank=True, null=True)
+    landmark_loc = models.CharField(blank=True, null=True)
     # Pincode
-    pincode = models.PositiveIntegerField(blank=True, null=True)
+    pincode_loc = models.PositiveIntegerField(blank=True, null=True)
     # Name of Branch
     branch_name = models.CharField(blank=True, null=True, default='Hyderabad')
     # Location - Latitude and Longitude
-    latitude = models.FloatField(blank=True, null=True)
-    longitude = models.FloatField(blank=True, null=True)
+    latitude_loc = models.FloatField(blank=True, null=True)
+    longitude_loc = models.FloatField(blank=True, null=True)
 
     # ... add other fields for step 1
 
