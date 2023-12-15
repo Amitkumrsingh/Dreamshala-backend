@@ -135,12 +135,47 @@ class CoachingStep1(models.Model):
 class CoachingStep2(models.Model):
     coaching_step1 = models.OneToOneField(CoachingStep1, on_delete=models.CASCADE, primary_key=True)
 
-    # Management Contact
-    management_name = models.CharField(blank=True, null=True)
-    management_role = models.CharField(blank=True, null=True)
-    management_email = models.EmailField(blank=True, null=True)
-    management_contact = models.CharField(blank=True, null=True)
-    # ... add other fields for step 2
+    # Entrance Exams
+    coaching_for_exams = models.CharField(max_length=50, choices=[('design', 'Design'), ('engineering', 'Engineering'), ('etc', 'Etc.')],blank=True, null=True)
+    other_exams = models.TextField(blank=True, null=True)
+
+    # Courses and Fees
+    course_for_exam = models.CharField(max_length=50, choices=[('course1', 'Course 1'), ('course2', 'Course 2'), ('course3', 'Course 3')],blank=True, null=True)
+    course_duration = models.CharField(max_length=50, choices=[('duration1', 'Duration 1'), ('duration2', 'Duration 2')],blank=True, null=True)
+    course_mode = models.CharField(max_length=50, choices=[('mode1', 'Mode 1'), ('mode2', 'Mode 2')],blank=True, null=True)
+    course_description = models.TextField(max_length=500 , blank=True, null=True)
+    total_fee = models.CharField(max_length=10, blank=True, null=True)
+    discount = models.CharField(max_length=10, blank=True, null=True)
+    study_material_included = models.CharField(max_length=50, choices=[('yes', 'Yes'), ('no', 'No')],blank=True, null=True)
+
+    # Study Material
+    material_file = models.FileField(upload_to='material_files/',blank=True, null=True)
+    material_description = models.TextField(max_length=500, blank=True, null=True)
+    keywords_meta_tags = models.TextField(blank=True, null=True)
+    links = models.TextField(blank=True, null=True)
+    exams_who_can_refer = models.CharField(max_length=50, choices=[('exam1', 'Exam 1'), ('exam2', 'Exam 2')],blank=True, null=True)
+
+    # Results
+    excel_file = models.FileField(upload_to='result_files/',blank=True, null=True)
+    result_photo = models.ImageField(upload_to='result_photos/',blank=True, null=True)
+    result_name = models.CharField(max_length=10, blank=True, null=True)
+    college_secured = models.CharField(max_length=50, choices=[('college1', 'College 1'), ('college2', 'College 2')],blank=True, null=True)
+    exam_cracked = models.CharField(max_length=50, choices=[('exam1', 'Exam 1'), ('exam2', 'Exam 2')],blank=True, null=True)
+    all_india_rank = models.CharField(max_length=50, choices=[('rank1', 'Rank 1'), ('rank2', 'Rank 2')],blank=True, null=True)
+    base_city_result = models.CharField(max_length=50, choices=[('city1', 'City 1'), ('city2', 'City 2')],blank=True, null=True)
+    testimonial = models.TextField(max_length=500, blank=True, null=True)
+
+    # Faculties
+    faculty_photo = models.ImageField(upload_to='faculty_photos/',blank=True, null=True)
+    faculty_name = models.CharField(max_length=10, blank=True, null=True)
+    specialization = models.CharField(max_length=50, choices=[('spec1', 'Specialization 1'), ('spec2', 'Specialization 2')],blank=True, null=True)
+    background = models.CharField(max_length=50, choices=[('bg1', 'Background 1'), ('bg2', 'Background 2')],blank=True, null=True)
+    experience = models.CharField(max_length=50, choices=[('exp1', 'Experience 1'), ('exp2', 'Experience 2')],blank=True, null=True)
+    base_city_faculty = models.CharField(max_length=50, choices=[('city1', 'City 1'), ('city2', 'City 2')],blank=True, null=True)
+    faculty_links = models.TextField(blank=True, null=True)
+
+
+
 
 class CoachingStep3(models.Model):
     coaching_step2 = models.OneToOneField(CoachingStep2, on_delete=models.CASCADE, primary_key=True)
