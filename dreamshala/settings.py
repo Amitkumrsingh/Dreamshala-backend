@@ -14,6 +14,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os.path
 import sys
+import boto3
+
 
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 STATIC_URL = '/static/'
@@ -164,3 +166,25 @@ REST_FRAMEWORK = {
 # settings.py
 
 AUTH_USER_MODEL = 'api.CustomUser'
+
+
+# settings.py
+
+AWS_STORAGE_BUCKET_NAME = 'dreamshala-backend'
+AWS_ACCESS_KEY_ID = 'AKIAVDPU7Y6R3OUZJPJU'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_S3_REGION_NAME = 'ap-south-1'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
+
+
+# Static files (CSS, JavaScript, images)
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Media files (uploads)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
