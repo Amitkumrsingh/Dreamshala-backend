@@ -65,7 +65,7 @@ class Exam(models.Model):
     brochure_description = models.TextField(max_length=500)
     keywords = models.TextField(max_length=200)
     brochure_links = models.ManyToManyField(Link, related_name='brochures')
-    exams_who_can_refer = models.ManyToManyField('self', related_name='referring_exams')
+    exams_who_can_refer = models.ManyToManyField('self', symmetrical=True)
 
     # Registration Details
     registration_website = models.URLField()
