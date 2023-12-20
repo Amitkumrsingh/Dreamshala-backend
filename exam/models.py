@@ -169,3 +169,6 @@ class ExamStep3(models.Model):
     question_paper_mode = models.CharField(max_length=20, choices=MODE_CHOICES, null=True, blank=True)
     question_paper_description = models.TextField(max_length=500, null=True, blank=True)
     question_paper_links = models.TextField(null=True, blank=True, help_text="Separated by comma")
+    #FAQ
+    question = models.TextField(blank=True, null=True)
+    answer = models.TextField(blank=True, null=True)
