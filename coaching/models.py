@@ -89,9 +89,9 @@ class CoachingStep1(models.Model):
     # Upload PAN card
     pan_card_upload = models.FileField(upload_to='pan_cards/',blank=True, null=True)
     # Address line 1
-    address_line_1 = models.CharField(blank=True, null=True, default='Hydrabad')
+    address_line_1 = models.CharField(blank=True, null=True)
     # Address line 2
-    address_line_2 = models.CharField(blank=True, null=True, default='Hydrabad')
+    address_line_2 = models.CharField(blank=True, null=True)
     # Landmark/Locality
     landmark = models.CharField(blank=True, null=True)
     # Pincode
@@ -120,15 +120,15 @@ class CoachingStep1(models.Model):
     # City
     city = models.CharField(blank=True, null=True)
     # Address Line 1
-    address_line_1_loc = models.CharField(blank=True, null=True , default='Hyderabad')
+    address_line_1_loc = models.CharField(blank=True, null=True)
     # Address Line 2
-    address_line_2_loc = models.CharField(blank=True, null=True , default='Hyderabad')
+    address_line_2_loc = models.CharField(blank=True, null=True)
     # Landmark/Locality
     landmark_loc = models.CharField(blank=True, null=True)
     # Pincode
     pincode_loc = models.PositiveIntegerField(blank=True, null=True)
     # Name of Branch
-    branch_name = models.CharField(blank=True, null=True, default='Hyderabad')
+    branch_name = models.CharField(blank=True, null=True)
     # Location - Latitude and Longitude
     latitude_loc = models.FloatField(blank=True, null=True)
     longitude_loc = models.FloatField(blank=True, null=True)

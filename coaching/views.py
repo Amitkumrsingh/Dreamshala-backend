@@ -1,4 +1,3 @@
-# coaching/views.py
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
@@ -9,22 +8,34 @@ class CoachingCreateStep1View(generics.CreateAPIView):
     serializer_class = CoachingStep1Serializer
 
     def create(self, request, *args, **kwargs):
-        # Handle step 1 data
-        # Save or process step 1 data as needed
-        return Response({'message': 'Step 1 data received'}, status=status.HTTP_201_CREATED)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def perform_create(self, serializer):
+        serializer.save()
 
 class CoachingCreateStep2View(generics.CreateAPIView):
     serializer_class = CoachingStep2Serializer
 
     def create(self, request, *args, **kwargs):
-        # Handle step 2 data
-        # Save or process step 2 data as needed
-        return Response({'message': 'Step 2 data received'}, status=status.HTTP_201_CREATED)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def perform_create(self, serializer):
+        serializer.save()
 
 class CoachingCreateStep3View(generics.CreateAPIView):
     serializer_class = CoachingStep3Serializer
 
     def create(self, request, *args, **kwargs):
-        # Handle step 3 data
-        # Save or process step 3 data as needed
-        return Response({'message': 'Step 3 data received'}, status=status.HTTP_201_CREATED)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def perform_create(self, serializer):
+        serializer.save()
