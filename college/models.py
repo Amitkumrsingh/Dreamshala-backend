@@ -3,7 +3,7 @@ from django.db import models
 
 class CollegeStep1(models.Model):
     STATE_CHOICES = [
-        ('Andhra Pradesh', 'Andhra Pradesh'),
+    ('Andhra Pradesh', 'Andhra Pradesh'),
     ('Arunachal Pradesh', 'Arunachal Pradesh'),
     ('Assam', 'Assam'),
     ('Bihar', 'Bihar'),
@@ -49,13 +49,14 @@ class CollegeStep1(models.Model):
         ('Sunday', 'Sunday'),
     ]
 
-    name = models.CharField(max_length=15, blank=True, null=True)
     logo = models.ImageField(upload_to='college_logos/', blank=True, null=True)
     short_description = models.TextField(max_length=250, blank=True, null=True)
     detailed_description = models.TextField(max_length=500, blank=True, null=True)
-    days_of_operation = models.ManyToManyField('WeekDay', blank=True)
+    days_of_operation = models.CharField(max_length=20, choices=DAYS_CHOICES, blank=True, null=True)
     opens = models.TimeField(blank=True, null=True)
     closes = models.TimeField(blank=True, null=True)
+
+    #CONTACT DETAILS
 
     main_website = models.URLField(blank=True, null=True)
     contact_number = models.CharField(max_length=15, blank=True, null=True)
@@ -68,10 +69,25 @@ class CollegeStep1(models.Model):
     pinterest_account = models.URLField(blank=True, null=True)
     twitter_handle = models.URLField(blank=True, null=True)
 
+
+   #College details(OFFICE)
+    college_name = models.CharField( blank=True, null=True)
     GSTIN = models.CharField(max_length=10, blank=True, null=True)
     establishment_year = models.PositiveIntegerField(blank=True, null=True)
-    pan_card_number = models.CharField(max_length=10, blank=True, null=True)
-    pan_card_upload = models.FileField(upload_to='pan_cards/', blank=True, null=True)
+
+  #College Registered Address
+    college_address_line_1 = models.TextField(max_length=50, blank=True, null=True)
+    college_address_line_2 = models.TextField(max_length=50, blank=True, null=True)
+    college_landmark_locality = models.TextField(max_length=10, blank=True, null=True)
+    college_pincode = models.PositiveIntegerField(blank=True, null=True)
+    college_state = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
+    college_city = models.CharField(max_length=50, blank=True, null=True)
+    college_pan_card_number = models.CharField(max_length=10, blank=True, null=True)
+    college_pan_card_upload = models.FileField(upload_to='pan_cards/', blank=True, null=True)
+
+  #Location
+    state = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
+    city = models.CharField(max_length=50, blank=True, null=True)
     address_line_1 = models.TextField(max_length=50, blank=True, null=True)
     address_line_2 = models.TextField(max_length=50, blank=True, null=True)
     landmark_locality = models.TextField(max_length=10, blank=True, null=True)
@@ -89,8 +105,7 @@ class CollegeStep1(models.Model):
     management_contact = models.CharField(max_length=15, blank=True, null=True)
 
 
-class WeekDay(models.Model):
-    day = models.CharField(max_length=10, choices=CollegeStep1.DAYS_CHOICES,blank=True, null=True)
+
 
 
 
@@ -359,7 +374,7 @@ class CollegeStep5(models.Model):
 
     image = models.ImageField(upload_to='additional_details/photos/', blank=True, null=True)
     description = models.TextField(max_length=250, blank=True, null=True)
-    category = models.ManyToManyField('PhotoCategory')
+    category = models.CharField(max_length=50,blank=True, null=True)
     keywords = models.TextField(max_length=200, blank=True, null=True)
 
 
@@ -389,7 +404,7 @@ class CollegeStep5(models.Model):
     photo_video = models.FileField(upload_to='additional_details/reviews/', blank=True, null=True)
 
     #Checklist
-    available_facilities = models.ManyToManyField('Facility')
+    available_facilities = models.CharField(max_length=50,blank=True, null=True)
     students_in_batch = models.CharField(max_length=5, blank=True, null=True)
     total_students = models.CharField(max_length=5, blank=True, null=True)
     number_of_faculty = models.CharField(max_length=5, blank=True, null=True)
@@ -400,11 +415,9 @@ class CollegeStep5(models.Model):
 
 
 
-class PhotoCategory(models.Model):
-    name = models.CharField(max_length=50,blank=True, null=True)
 
-class Facility(models.Model):
-    name = models.CharField(max_length=50,blank=True, null=True)
+
+
 
 
 
