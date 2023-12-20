@@ -44,7 +44,7 @@ class CoachingStep1(models.Model):
     logo = models.ImageField(upload_to='coaching_logos/', blank=True, null=True)
     short_description = models.TextField(blank=True, null=True)
     detailed_description = models.TextField(blank=True, null=True)
-    days_of_operation = models.ManyToManyField(WeekDay)
+    days_of_operation = models.ManyToManyField(WeekDay,blank=True, null=True)
     opens = models.TimeField(blank=True, null=True)
     closes = models.TimeField(blank=True, null=True)
 
