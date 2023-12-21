@@ -4,11 +4,53 @@ from .models import CoachingStep1, CoachingStep2, CoachingStep3
 
 @admin.register(CoachingStep1)
 class CoachingStep1Admin(admin.ModelAdmin):
-    list_display = ['logo', 'short_description', 'detailed_description', 'coaching_main_website','contact_number','email' ]
+    list_display = ['id',
+        'logo',
+        'short_description',
+        'detailed_description',
+        'opens',
+        'closes',
+        'coaching_main_website',
+        'contact_number',
+        'email',
+        'other_links',
+        'facebook_page',
+        'instagram_account',
+        'linkedin_page',
+        'youtube_channel',
+        'pinterest_account',
+        'twitter_handle',
+        'name',
+        'role',
+        'email_mang',
+        'contact_number_mang',
+        'coaching_name',
+        'coaching_gstin',
+        'establishment_year',
+        'pan_card_number',
+        'pan_card_upload',
+        'address_line_1',
+        'address_line_2',
+        'landmark',
+        'pincode',
+        'state',
+        'city',
+        'latitude',
+        'longitude',
+        'state',  # Location state
+        'city',  # Location city
+        'address_line_1_loc',
+        'address_line_2_loc',
+        'landmark_loc',
+        'pincode_loc',
+        'branch_name',
+        'latitude_loc',
+        'longitude_loc',]
 
 @admin.register(CoachingStep2)
 class CoachingStep2Admin(admin.ModelAdmin):
     list_display = [
+
         'coaching_step1',
         'coaching_for_exams',
         'other_exams',
@@ -44,6 +86,7 @@ class CoachingStep2Admin(admin.ModelAdmin):
 @admin.register(CoachingStep3)
 class CoachingStep3Admin(admin.ModelAdmin):
     list_display = [
+
         'coaching_step2',
         'photo',
         'photo_description',
