@@ -170,5 +170,5 @@ class ExamStep3(models.Model):
     question_paper_description = models.TextField(max_length=500, null=True, blank=True)
     question_paper_links = models.TextField(null=True, blank=True, help_text="Separated by comma")
     #FAQ
-    question = models.TextField(blank=True, null=True)
-    answer = models.TextField(blank=True, null=True)
+    faq_question = models.TextField(blank=True, null=True)
+    faq_answer = models.TextField(blank=True, null=True)

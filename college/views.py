@@ -7,7 +7,6 @@ from .serializers import CollegeStep1Serializer, CollegeStep2Serializer, College
 
 class CollegeCreateStep1View(generics.CreateAPIView):
     serializer_class = CollegeStep1Serializer
-
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)

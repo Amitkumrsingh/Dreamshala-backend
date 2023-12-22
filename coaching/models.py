@@ -213,9 +213,9 @@ class CoachingStep3(models.Model):
     review_photo_or_video = models.FileField(upload_to='review_files/', blank=True, null=True)
 
     # Checklist
-    available_facilities = models.ManyToManyField('Facility', blank=True)
+    available_facilities = models.CharField(max_length=50,blank=True, null=True)
     students_in_batch = models.CharField(max_length=5, blank=True, null=True)
-    total_students_in_coaching = models.CharField(max_length=5, blank=True, null=True)
+    total_students = models.CharField(max_length=5, blank=True, null=True)
     number_of_faculty = models.CharField(max_length=5, blank=True, null=True)
 
     # Frequently Asked Questions

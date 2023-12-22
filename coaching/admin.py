@@ -109,7 +109,7 @@ class CoachingStep3Admin(admin.ModelAdmin):
         'review_links',
         'review_photo_or_video',
         'students_in_batch',
-        'total_students_in_coaching',
+        'total_students',
         'number_of_faculty',
         'faq_question',
         'faq_answer',

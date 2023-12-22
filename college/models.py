@@ -360,7 +360,7 @@ class CollegeStep5(models.Model):
         # Add more course choices as needed
     ]
 
-
+    excel_file = models.FileField(upload_to='placement_details_exel/', null=True, blank=True)
     degree_branch = models.CharField(max_length=20, choices=DEGREE_BRANCH_CHOICES, blank=True, null=True)
     overall_placement_description = models.TextField(max_length=500, blank=True, null=True)
     number_of_recruiters = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
@@ -372,20 +372,20 @@ class CollegeStep5(models.Model):
 
     #Photos
 
-    image = models.ImageField(upload_to='additional_details/photos/', blank=True, null=True)
-    description = models.TextField(max_length=250, blank=True, null=True)
-    category = models.CharField(max_length=50,blank=True, null=True)
-    keywords = models.TextField(max_length=200, blank=True, null=True)
+    photo = models.ImageField(upload_to='additional_details/photos/', blank=True, null=True)
+    photo_description = models.TextField(max_length=250, blank=True, null=True)
+    photo_category = models.CharField(max_length=50,blank=True, null=True)
+    photo_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
 
 
     #Videos
 
-    upload_type = models.CharField(max_length=20, choices=UPLOAD_TYPE_CHOICES,blank=True, null=True)
-    link = models.URLField(blank=True, null=True)
+
+    video_link = models.URLField(blank=True, null=True)
     video_file = models.FileField(upload_to='additional_details/videos/', blank=True, null=True)
-    description = models.TextField(max_length=250, blank=True, null=True)
-    keywords = models.TextField(max_length=200, blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='additional_details/videos/thumbnails/', blank=True, null=True)
+    video_description = models.TextField(max_length=250, blank=True, null=True)
+    video_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
+    video_thumbnail = models.ImageField(upload_to='additional_details/videos/thumbnails/', blank=True, null=True)
 
     #Review
 
@@ -410,8 +410,8 @@ class CollegeStep5(models.Model):
     number_of_faculty = models.CharField(max_length=5, blank=True, null=True)
 
     #FAQ
-    question = models.TextField(blank=True, null=True)
-    answer = models.TextField(blank=True, null=True)
+    faq_question = models.TextField(blank=True, null=True)
+    faq_answer = models.TextField(blank=True, null=True)
 
 
 
