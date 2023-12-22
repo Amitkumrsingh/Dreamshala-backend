@@ -82,6 +82,8 @@ class CollegeStep1(models.Model):
     college_pincode = models.PositiveIntegerField(blank=True, null=True)
     college_state = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
     college_city = models.CharField(max_length=50, blank=True, null=True)
+    college_latitude = models.FloatField(blank=True, null=True)
+    college_longitude = models.FloatField(blank=True, null=True)
     college_pan_card_number = models.CharField(max_length=10, blank=True, null=True)
     college_pan_card_upload = models.FileField(upload_to='pan_cards/', blank=True, null=True)
 
@@ -94,6 +96,7 @@ class CollegeStep1(models.Model):
     pincode = models.PositiveIntegerField(blank=True, null=True)
     state = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
     city = models.CharField(max_length=50, blank=True, null=True)
+    branch_name = models.CharField(max_length=10, blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
 
