@@ -37,8 +37,8 @@ class CoachingStep1Admin(admin.ModelAdmin):
         'city',
         'latitude',
         'longitude',
-        'state',  # Location state
-        'city',  # Location city
+        'state_loc',  # Location state
+        'city_loc',  # Location city
         'address_line_1_loc',
         'address_line_2_loc',
         'landmark_loc',
