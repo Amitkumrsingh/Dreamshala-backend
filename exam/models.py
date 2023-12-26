@@ -96,11 +96,11 @@ MODE_CHOICES = [
 class ExamStep1(models.Model):
      # Basic Details
     logo = models.ImageField(upload_to='exam/logos/', blank=True, null=True)
-    short_description = models.TextField(max_length=200, blank=True, null=True)
-    detailed_description = models.TextField(max_length=500, blank=True, null=True)
-    exam_frequency = models.CharField(max_length=20, choices=EXAM_FREQUENCY_CHOICES, blank=True, null=True)
-    exam_mode = models.CharField(max_length=20, choices=EXAM_MODE_CHOICES, blank=True, null=True)
-    states_applicable = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
+    short_description = models.TextField( blank=True, null=True)
+    detailed_description = models.TextField( blank=True, null=True)
+    exam_frequency = models.CharField( choices=EXAM_FREQUENCY_CHOICES, blank=True, null=True)
+    exam_mode = models.CharField( choices=EXAM_MODE_CHOICES, blank=True, null=True)
+    states_applicable = models.CharField( choices=STATE_CHOICES, blank=True, null=True)
 
     # Contact Details
     exam_official_website = models.TextField(blank=True, null=True)
@@ -110,26 +110,26 @@ class ExamStep1(models.Model):
 
     # Brochure
     upload_brochure = models.FileField(upload_to='exam/brochures/', blank=True, null=True)
-    brochure_description = models.TextField(max_length=500, blank=True, null=True)
-    keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
+    brochure_description = models.TextField( blank=True, null=True)
+    keywords_meta_tags = models.TextField( blank=True, null=True)
     brochure_links = models.TextField(blank=True, null=True)  # You may need a separate model for links with + button
-    exams_who_can_refer = models.CharField(max_length=20, choices=EXAMS_CHOICES, blank=True, null=True)
+    exams_who_can_refer = models.CharField( choices=EXAMS_CHOICES, blank=True, null=True)
 
     # Registration Details
     registration_website = models.TextField(blank=True, null=True)
-    registration_mode = models.CharField(max_length=20, choices=REGISTRATION_MODE_CHOICES, blank=True, null=True)
-    payment_modes = models.CharField(max_length=20, choices=PAYMENT_MODES_CHOICES, blank=True, null=True)
+    registration_mode = models.CharField( choices=REGISTRATION_MODE_CHOICES, blank=True, null=True)
+    payment_modes = models.CharField( choices=PAYMENT_MODES_CHOICES, blank=True, null=True)
 
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES ,blank=True, null=True)
+    category = models.CharField( choices=CATEGORY_CHOICES ,blank=True, null=True)
     fee = models.DecimalField(max_digits=10, decimal_places=2,blank=True, null=True)
 
-    registration_fees = models.CharField(max_length=20, blank=True)
+    registration_fees = models.CharField( blank=True)
 
 
 
 class ExamStep2(models.Model):
-    news_post = models.TextField(max_length=5000,blank=True, null=True)
-    news_category = models.CharField(max_length=20, choices=NEWS_CATEGORY_CHOICES,blank=True, null=True)
+    news_post = models.TextField(blank=True, null=True)
+    news_category = models.CharField( choices=NEWS_CATEGORY_CHOICES,blank=True, null=True)
 
     # Important Dates
     registration_start_date = models.DateField(blank=True, null=True)
@@ -143,31 +143,31 @@ class ExamStep2(models.Model):
 class ExamStep3(models.Model):
     # Exam Pattern
     excel_file = models.FileField(upload_to='exam_patterns/', null=True, blank=True)
-    pattern_degree_branch = models.CharField(max_length=50, null=True, blank=True)
-    pattern_mode = models.CharField(max_length=20, choices=MODE_CHOICES, null=True, blank=True)
-    pattern_duration = models.CharField(max_length=20, null=True, blank=True)
-    pattern_questions = models.CharField(max_length=20, null=True, blank=True)
-    pattern_total_marks = models.CharField(max_length=20, null=True, blank=True)
+    pattern_degree_branch = models.CharField( null=True, blank=True)
+    pattern_mode = models.CharField( choices=MODE_CHOICES, null=True, blank=True)
+    pattern_duration = models.CharField( null=True, blank=True)
+    pattern_questions = models.CharField( null=True, blank=True)
+    pattern_total_marks = models.CharField( null=True, blank=True)
     pattern_subjects_sections = models.TextField(null=True, blank=True, help_text="Separated by comma")
     pattern_medium = models.TextField(null=True, blank=True, help_text="Separated by comma")
-    pattern_type_of_questions = models.TextField(max_length=500, null=True, blank=True)
-    pattern_marking_scheme = models.TextField(max_length=500, null=True, blank=True)
+    pattern_type_of_questions = models.TextField( null=True, blank=True)
+    pattern_marking_scheme = models.TextField( null=True, blank=True)
 
     # Study Material
     material_file = models.FileField(upload_to='study_material/', null=True, blank=True)
-    material_description = models.TextField(max_length=500, null=True, blank=True)
+    material_description = models.TextField( null=True, blank=True)
     material_keywords = models.TextField(null=True, blank=True)
-    material_category = models.CharField(max_length=50, null=True, blank=True)
-    material_exam_ref = models.CharField(max_length=50, null=True, blank=True)
+    material_category = models.CharField( null=True, blank=True)
+    material_exam_ref = models.CharField( null=True, blank=True)
     material_links = models.TextField(null=True, blank=True, help_text="Separated by comma")
 
     # Previous Year Question Paper
     question_paper_files = models.FileField(upload_to='question_papers/', null=True, blank=True)
-    question_paper_exam = models.CharField(max_length=50, null=True, blank=True)
-    question_paper_year = models.CharField(max_length=20, null=True, blank=True)
+    question_paper_exam = models.CharField( null=True, blank=True)
+    question_paper_year = models.CharField( null=True, blank=True)
     question_paper_date = models.DateField(null=True, blank=True)
-    question_paper_mode = models.CharField(max_length=20, choices=MODE_CHOICES, null=True, blank=True)
-    question_paper_description = models.TextField(max_length=500, null=True, blank=True)
+    question_paper_mode = models.CharField( choices=MODE_CHOICES, null=True, blank=True)
+    question_paper_description = models.TextField( null=True, blank=True)
     question_paper_links = models.TextField(null=True, blank=True, help_text="Separated by comma")
     #FAQ
     faq_question = models.TextField(blank=True, null=True)
