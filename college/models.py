@@ -297,7 +297,7 @@ class CollegeStep4(models.Model):
     photo = models.ImageField(upload_to='people_photos/', blank=True, null=True)
     degree = models.TextField( blank=True, null=True)
     year_of_graduation = models.TextField( blank=True, null=True)
-    experience = models.TextField( blank=True, null=True)
+    almuni_experience = models.TextField( blank=True, null=True)
     latest_position_achievement = models.TextField(blank=True, null=True)
     links = models.TextField( blank=True, null=True)
     name = models.TextField(blank=True, null=True)
@@ -305,11 +305,11 @@ class CollegeStep4(models.Model):
 
       # Faculties
     faculty_photo = models.ImageField(upload_to='faculty_photos/',blank=True, null=True)
-    faculty_name = models.CharField( blank=True, null=True)
-    specialization = models.CharField( choices=[('spec1', 'Specialization 1'), ('spec2', 'Specialization 2')],blank=True, null=True)
-    background = models.CharField( choices=[('bg1', 'Background 1'), ('bg2', 'Background 2')],blank=True, null=True)
-    experience = models.CharField( choices=[('exp1', 'Experience 1'), ('exp2', 'Experience 2')],blank=True, null=True)
-    base_city_faculty = models.CharField( choices=[('city1', 'City 1'), ('city2', 'City 2')],blank=True, null=True)
+    faculty_name = models.TextField( blank=True, null=True)
+    specialization = models.TextField( blank=True, null=True)
+    background = models.TextField( blank=True, null=True)
+    experience = models.TextField( blank=True, null=True)
+    base_city_faculty = models.TextField(blank=True, null=True)
     faculty_links = models.TextField(blank=True, null=True)
 
 
