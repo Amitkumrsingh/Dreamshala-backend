@@ -145,7 +145,7 @@ class CollegeStep2(models.Model):
     date_description = models.TextField( blank=True, null=True)
     starts_from = models.TextField(blank=True, null=True)
     ends_at = models.TextField(blank=True, null=True)
-    event_description =models.CharField(choices=EVENT_DESCRIPTION_CHOICES, blank=True, null=True)
+    event_description =models.TextField(blank=True, null=True)
 
 
 
