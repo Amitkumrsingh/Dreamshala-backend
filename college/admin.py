@@ -92,11 +92,15 @@ class CollegeStep4Admin(admin.ModelAdmin):
     'latest_position_achievement',
     'links',
     'name',
-    'specialisation',
     'background',
     'experience',  # Note: This field is repeated; you might want to change one of them
-    'base_city',
-    'faculty_links',)  # Add other fields as needed
+    'faculty_links',
+    'faculty_name',
+    'specialization',
+    'background',
+    'experience',
+    'base_city_faculty'
+    )  # Add other fields as needed
 
 @admin.register(CollegeStep5)
 class CollegeStep5Admin(admin.ModelAdmin):
