@@ -226,11 +226,11 @@ class CollegeStep3(models.Model):
     entrance_exams = models.TextField(blank=True, null= True)
     other_criteria = models.TextField( blank=True, null=True)
 
-    course = models.TextField(choices=COURSE_CHOICES, blank=True, null=True)
+    course = models.TextField(blank=True, null=True)
     course_duration = models.CharField(choices=COURSE_DURATION_CHOICES, blank=True, null=True)
     degree_offered = models.TextField( blank=True, null=True)
     course_description = models.TextField(blank=True, null=True)
-    total_fees = models.CharField(choices=FEES_CHOICES, blank=True, null=True)
+    total_fees = models.TextField(blank=True, null=True)
     course_mode = models.CharField(choices=MODE_CHOICES, blank=True, null=True)
     eligibility_criteria = models.CharField(choices=ELIGIBILITY_CHOICES, blank=True, null=True)
     batch_strength = models.TextField(blank=True, null=True)
