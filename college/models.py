@@ -138,11 +138,11 @@ class CollegeStep2(models.Model):
     ]
 
     # Important News
-    important_news = models.TextField(max_length=5000, blank=True, null=True)
+    important_news = models.TextField(blank=True, null=True)
     news_category = models.CharField(choices=NEWS_CATEGORY_CHOICES, blank=True, null=True)
 
     # Important Dates
-    date_description = models.CharField(choices=DATE_DESCRIPTION_CHOICES, blank=True, null=True)
+    date_description = models.TextField( blank=True, null=True)
     starts_from = models.TextField(blank=True, null=True)
     ends_at = models.TextField(blank=True, null=True)
     event_description =models.CharField(choices=EVENT_DESCRIPTION_CHOICES, blank=True, null=True)
