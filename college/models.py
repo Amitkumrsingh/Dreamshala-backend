@@ -50,24 +50,24 @@ class CollegeStep1(models.Model):
     ]
 
     logo = models.ImageField(upload_to='college_logos/', blank=True, null=True)
-    short_description = models.TextField(max_length=250, blank=True, null=True)
-    detailed_description = models.TextField(max_length=500, blank=True, null=True)
-    days_of_operation = models.CharField(max_length=20, choices=DAYS_CHOICES, blank=True, null=True)
+    short_description = models.TextField(blank=True, null=True)
+    detailed_description = models.TextField(blank=True, null=True)
+    days_of_operation = models.CharField(choices=DAYS_CHOICES, blank=True, null=True)
     opens = models.TimeField(blank=True, null=True)
     closes = models.TimeField(blank=True, null=True)
 
     #CONTACT DETAILS
 
-    main_website = models.URLField(blank=True, null=True)
-    contact_number = models.CharField(max_length=15, blank=True, null=True)
+    main_website = models.TextField(blank=True, null=True)
+    contact_number = models.CharField( blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
-    other_links =  models.URLField(blank=True, null=True)
-    facebook_page = models.URLField(blank=True, null=True)
-    instagram_account = models.URLField(blank=True, null=True)
-    linkedin_page = models.URLField(blank=True, null=True)
-    youtube_channel = models.URLField(blank=True, null=True)
-    pinterest_account = models.URLField(blank=True, null=True)
-    twitter_handle = models.URLField(blank=True, null=True)
+    other_links =  models.TextField(blank=True, null=True)
+    facebook_page = models.TextField(blank=True, null=True)
+    instagram_account = models.TextField(blank=True, null=True)
+    linkedin_page = models.TextField(blank=True, null=True)
+    youtube_channel = models.TextField(blank=True, null=True)
+    pinterest_account = models.TextField(blank=True, null=True)
+    twitter_handle = models.TextField(blank=True, null=True)
 
 
    #College details(OFFICE)
@@ -102,10 +102,10 @@ class CollegeStep1(models.Model):
 
 
     # Management Contact
-    management_name = models.CharField(max_length=15, blank=True, null=True)
-    management_role = models.CharField(max_length=15, blank=True, null=True)
+    management_name = models.CharField( blank=True, null=True)
+    management_role = models.CharField( blank=True, null=True)
     management_email = models.EmailField(blank=True, null=True)
-    management_contact = models.CharField(max_length=15, blank=True, null=True)
+    management_contact = models.CharField( blank=True, null=True)
 
 
 
@@ -147,13 +147,13 @@ class CollegeStep2(models.Model):
 
     # Important News
     important_news = models.TextField(max_length=5000, blank=True, null=True)
-    news_category = models.CharField(max_length=20, choices=NEWS_CATEGORY_CHOICES, blank=True, null=True)
+    news_category = models.CharField(choices=NEWS_CATEGORY_CHOICES, blank=True, null=True)
 
     # Important Dates
-    date_description = models.CharField(max_length=20, choices=DATE_DESCRIPTION_CHOICES, blank=True, null=True)
+    date_description = models.CharField(choices=DATE_DESCRIPTION_CHOICES, blank=True, null=True)
     starts_from = models.DateField(blank=True, null=True)
     ends_at = models.DateField(blank=True, null=True)
-    event_description =models.CharField(max_length=20, choices=EVENT_DESCRIPTION_CHOICES, blank=True, null=True)
+    event_description =models.CharField(choices=EVENT_DESCRIPTION_CHOICES, blank=True, null=True)
 
 
 
@@ -233,36 +233,36 @@ class CollegeStep3(models.Model):
     entrance_exams = models.ManyToManyField('EntranceExamChoice', blank=True)
     other_criteria = models.TextField(max_length=200, blank=True, null=True)
 
-    course = models.CharField(max_length=20, choices=COURSE_CHOICES, blank=True, null=True)
-    course_duration = models.CharField(max_length=20, choices=COURSE_DURATION_CHOICES, blank=True, null=True)
-    degree_offered = models.CharField(max_length=20, choices=DEGREE_OFFERED_CHOICES, blank=True, null=True)
-    course_description = models.TextField(max_length=500, blank=True, null=True)
-    total_fees = models.CharField(max_length=20, choices=FEES_CHOICES, blank=True, null=True)
-    course_mode = models.CharField(max_length=20, choices=MODE_CHOICES, blank=True, null=True)
-    eligibility_criteria = models.CharField(max_length=20, choices=ELIGIBILITY_CHOICES, blank=True, null=True)
-    batch_strength = models.CharField(max_length=20, choices=BATCH_STRENGTH_CHOICES, blank=True, null=True)
+    course = models.CharField(choices=COURSE_CHOICES, blank=True, null=True)
+    course_duration = models.CharField(choices=COURSE_DURATION_CHOICES, blank=True, null=True)
+    degree_offered = models.CharField(choices=DEGREE_OFFERED_CHOICES, blank=True, null=True)
+    course_description = models.TextField(blank=True, null=True)
+    total_fees = models.CharField(choices=FEES_CHOICES, blank=True, null=True)
+    course_mode = models.CharField(choices=MODE_CHOICES, blank=True, null=True)
+    eligibility_criteria = models.CharField(choices=ELIGIBILITY_CHOICES, blank=True, null=True)
+    batch_strength = models.CharField(choices=BATCH_STRENGTH_CHOICES, blank=True, null=True)
 
-    degree_branch_application_process = models.CharField(max_length=20, choices=DEGREE_OFFERED_CHOICES, blank=True, null=True)
-    application_process_description = models.TextField(max_length=500, blank=True, null=True)
-    eligibility_criteria_description = models.TextField(max_length=500, blank=True, null=True)
+    degree_branch_application_process = models.CharField(choices=DEGREE_OFFERED_CHOICES, blank=True, null=True)
+    application_process_description = models.TextField(blank=True, null=True)
+    eligibility_criteria_description = models.TextField(blank=True, null=True)
 
     # previous cutoff
-    degree_branch = models.CharField(max_length=20, choices=DEGREE_BRANCH_CHOICES, blank=True, null=True)
-    parameter_of_cutoffs = models.TextField(max_length=500, blank=True, null=True)
+    degree_branch = models.CharField(choices=DEGREE_BRANCH_CHOICES, blank=True, null=True)
+    parameter_of_cutoffs = models.TextField(blank=True, null=True)
 
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, blank=True, null=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, blank=True, null=True)
     percentile = models.CharField(max_length=5, blank=True, null=True)
 
-    subject = models.CharField(max_length=20, choices=SUBJECT_CHOICES, blank=True, null=True)
-    subject_category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, blank=True, null=True)
+    subject = models.CharField(choices=SUBJECT_CHOICES, blank=True, null=True)
+    subject_category = models.CharField(choices=CATEGORY_CHOICES, blank=True, null=True)
     cutoff_percentile = models.CharField(max_length=5, blank=True, null=True)
 
 class EntranceExamChoice(models.Model):
-    choice = models.CharField(max_length=20, choices=CollegeStep3.ENTRANCE_EXAM_CHOICES, unique=True)
+    choice = models.CharField(choices=CollegeStep3.ENTRANCE_EXAM_CHOICES, unique=True)
 
 class CategoryPercentile(models.Model):
     college = models.ForeignKey(CollegeStep3, on_delete=models.CASCADE,blank=True, null=True)
-    category = models.CharField(max_length=20, choices=CollegeStep3.CATEGORY_CHOICES,blank=True, null=True)
+    category = models.CharField(choices=CollegeStep3.CATEGORY_CHOICES,blank=True, null=True)
     percentile = models.CharField(max_length=5,blank=True, null=True)
 
 class CollegeStep4(models.Model):
@@ -302,17 +302,17 @@ class CollegeStep4(models.Model):
     ]
 
     photo = models.ImageField(upload_to='people_photos/', blank=True, null=True)
-    degree = models.CharField(max_length=20, choices=DEGREE_CHOICES, blank=True, null=True)
-    year_of_graduation = models.CharField(max_length=20, choices=YEAR_OF_GRADUATION_CHOICES, blank=True, null=True)
-    experience = models.CharField(max_length=20, choices=EXPERIENCE_CHOICES, blank=True, null=True)
-    latest_position_achievement = models.CharField(max_length=20, choices=EXPERIENCE_CHOICES, blank=True, null=True)
+    degree = models.CharField(choices=DEGREE_CHOICES, blank=True, null=True)
+    year_of_graduation = models.CharField(choices=YEAR_OF_GRADUATION_CHOICES, blank=True, null=True)
+    experience = models.CharField(choices=EXPERIENCE_CHOICES, blank=True, null=True)
+    latest_position_achievement = models.CharField(choices=EXPERIENCE_CHOICES, blank=True, null=True)
     links = models.TextField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=10,blank=True, null=True)
-    specialisation = models.CharField(max_length=20, choices=SPECIAL_CHOICES, blank=True, null=True)
-    background = models.CharField(max_length=20, choices=BACKGROUND_CHOICES, blank=True, null=True)
-    experience = models.CharField(max_length=20, choices=EXPERIENCE_CHOICES, blank=True, null=True)
-    base_city = models.CharField(max_length=20, choices=BASE_CITY_CHOICES, blank=True, null=True)
+    specialisation = models.CharField(choices=SPECIAL_CHOICES, blank=True, null=True)
+    background = models.CharField(choices=BACKGROUND_CHOICES, blank=True, null=True)
+    experience = models.CharField(choices=EXPERIENCE_CHOICES, blank=True, null=True)
+    base_city = models.CharField(choices=BASE_CITY_CHOICES, blank=True, null=True)
     faculty_links = models.TextField(blank=True, null=True)
 
 
@@ -364,19 +364,19 @@ class CollegeStep5(models.Model):
     ]
 
     excel_file = models.FileField(upload_to='placement_details_exel/', null=True, blank=True)
-    degree_branch = models.CharField(max_length=20, choices=DEGREE_BRANCH_CHOICES, blank=True, null=True)
-    overall_placement_description = models.TextField(max_length=500, blank=True, null=True)
-    number_of_recruiters = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
-    number_of_offers = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
-    number_of_international_offers = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
-    to_recruiters = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
-    highest_package = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
-    average_package = models.CharField(max_length=20, choices=NUMBER_CHOICES, blank=True, null=True)
+    degree_branch = models.CharField(choices=DEGREE_BRANCH_CHOICES, blank=True, null=True)
+    overall_placement_description = models.TextField(blank=True, null=True)
+    number_of_recruiters = models.CharField(choices=NUMBER_CHOICES, blank=True, null=True)
+    number_of_offers = models.CharField(choices=NUMBER_CHOICES, blank=True, null=True)
+    number_of_international_offers = models.CharField(choices=NUMBER_CHOICES, blank=True, null=True)
+    to_recruiters = models.CharField(choices=NUMBER_CHOICES, blank=True, null=True)
+    highest_package = models.CharField(choices=NUMBER_CHOICES, blank=True, null=True)
+    average_package = models.CharField(choices=NUMBER_CHOICES, blank=True, null=True)
 
     #Photos
 
     photo = models.ImageField(upload_to='additional_details/photos/', blank=True, null=True)
-    photo_description = models.TextField(max_length=250, blank=True, null=True)
+    photo_description = models.TextField(blank=True, null=True)
     photo_category = models.CharField(max_length=50,blank=True, null=True)
     photo_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
 
@@ -384,17 +384,17 @@ class CollegeStep5(models.Model):
     #Videos
 
 
-    video_link = models.URLField(blank=True, null=True)
+    video_link = models.TextField(blank=True, null=True)
     video_file = models.FileField(upload_to='additional_details/videos/', blank=True, null=True)
-    video_description = models.TextField(max_length=250, blank=True, null=True)
+    video_description = models.TextField(blank=True, null=True)
     video_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
     video_thumbnail = models.ImageField(upload_to='additional_details/videos/thumbnails/', blank=True, null=True)
 
     #Review
 
     name = models.CharField(max_length=10,blank=True, null=True)
-    year_of_study = models.CharField(max_length=20, choices=YEAR_CHOICES,blank=True, null=True)
-    course_taken = models.CharField(max_length=20, choices=COURSE_CHOICES,blank=True, null=True)
+    year_of_study = models.CharField(choices=YEAR_CHOICES,blank=True, null=True)
+    course_taken = models.CharField(choices=COURSE_CHOICES,blank=True, null=True)
     overall_rating = models.IntegerField(choices=RATING_CHOICES,blank=True, null=True)
     academics_rating = models.IntegerField(choices=RATING_CHOICES,blank=True, null=True)
     faculty_rating = models.IntegerField(choices=RATING_CHOICES,blank=True, null=True)
@@ -402,8 +402,8 @@ class CollegeStep5(models.Model):
     accommodation_rating = models.IntegerField(choices=RATING_CHOICES,blank=True, null=True)
     placement_rating = models.IntegerField(choices=RATING_CHOICES,blank=True, null=True)
     social_life_rating = models.IntegerField(choices=RATING_CHOICES,blank=True, null=True)
-    detailed_description = models.TextField(max_length=500, blank=True, null=True)
-    links = models.URLField(blank=True, null=True)
+    detailed_description = models.TextField(blank=True, null=True)
+    links = models.TextField(blank=True, null=True)
     photo_video = models.FileField(upload_to='additional_details/reviews/', blank=True, null=True)
 
     #Checklist

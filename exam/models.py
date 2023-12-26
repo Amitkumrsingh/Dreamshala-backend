@@ -103,7 +103,7 @@ class ExamStep1(models.Model):
     states_applicable = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
 
     # Contact Details
-    exam_official_website = models.URLField(blank=True, null=True)
+    exam_official_website = models.TextField(blank=True, null=True)
     contact_number = models.CharField(max_length=15, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     other_links = models.TextField(blank=True, null=True)  # You may need a separate model for links with + button
@@ -116,7 +116,7 @@ class ExamStep1(models.Model):
     exams_who_can_refer = models.CharField(max_length=20, choices=EXAMS_CHOICES, blank=True, null=True)
 
     # Registration Details
-    registration_website = models.URLField(blank=True, null=True)
+    registration_website = models.TextField(blank=True, null=True)
     registration_mode = models.CharField(max_length=20, choices=REGISTRATION_MODE_CHOICES, blank=True, null=True)
     payment_modes = models.CharField(max_length=20, choices=PAYMENT_MODES_CHOICES, blank=True, null=True)
 

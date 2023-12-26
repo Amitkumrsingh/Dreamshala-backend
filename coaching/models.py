@@ -2,7 +2,7 @@
 from django.db import models
 
 class Link(models.Model):
-    url = models.URLField(blank=True, null=True)
+    url = models.TextField(blank=True, null=True)
     description = models.CharField(blank=True, null=True)
 
 class State(models.Model):
@@ -49,23 +49,23 @@ class CoachingStep1(models.Model):
     closes = models.TimeField(blank=True, null=True)
 
     #2. Contact Details
-    coaching_main_website = models.URLField(blank=True, null=True)
+    coaching_main_website = models.TextField(blank=True, null=True)
     contact_number = models.CharField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     # Other websites/important links
-    other_links = models.URLField(blank=True, null=True)
+    other_links = models.TextField(blank=True, null=True)
     # Facebook page
-    facebook_page = models.URLField(blank=True, null=True)
+    facebook_page = models.TextField(blank=True, null=True)
     # Instagram account
-    instagram_account = models.URLField(blank=True, null=True)
+    instagram_account = models.TextField(blank=True, null=True)
     # LinkedIn page
-    linkedin_page = models.URLField(blank=True, null=True)
+    linkedin_page = models.TextField(blank=True, null=True)
     # Youtube Channel
-    youtube_channel = models.URLField(blank=True, null=True)
+    youtube_channel = models.TextField(blank=True, null=True)
     # Pinterest Account
-    pinterest_account = models.URLField(blank=True, null=True)
+    pinterest_account = models.TextField(blank=True, null=True)
     # Twitter handle
-    twitter_handle = models.URLField(blank=True, null=True)
+    twitter_handle = models.TextField(blank=True, null=True)
 
     #3. Management Contact
     # Name
@@ -191,7 +191,7 @@ class CoachingStep3(models.Model):
     photo_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
 
     # Videos
-    video_link = models.URLField(blank=True, null=True)
+    video_link = models.TextField(blank=True, null=True)
     video_file = models.FileField(upload_to='videos/', blank=True, null=True)
     video_description = models.TextField(max_length=250, blank=True, null=True)
     video_keywords_meta_tags = models.TextField(max_length=200, blank=True, null=True)
@@ -209,7 +209,7 @@ class CoachingStep3(models.Model):
     peer_learning_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
     study_material_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
     review_description = models.TextField(max_length=500, blank=True, null=True)
-    review_links = models.URLField(blank=True, null=True)
+    review_links = models.TextField(blank=True, null=True)
     review_photo_or_video = models.FileField(upload_to='review_files/', blank=True, null=True)
 
     # Checklist
