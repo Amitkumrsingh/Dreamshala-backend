@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from .models import CoachingStep1, CoachingStep2, CoachingStep3
+from .models import CoachingSteps1, CoachingSteps2, CoachingSteps3
 from .serializers import CoachingStep1Serializer, CoachingStep2Serializer, CoachingStep3Serializer
 
 class CoachingCreateStep1View(generics.CreateAPIView):

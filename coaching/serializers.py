@@ -1,18 +1,18 @@
 # coaching/serializers.py
 from rest_framework import serializers
-from .models import CoachingStep1, CoachingStep2, CoachingStep3
+from .models import CoachingSteps1, CoachingSteps2, CoachingSteps3
 
 class CoachingStep1Serializer(serializers.ModelSerializer):
     class Meta:
-        model = CoachingStep1
+        model = CoachingSteps1
         fields = '__all__'
 
 class CoachingStep2Serializer(serializers.ModelSerializer):
     class Meta:
-        model = CoachingStep2
+        model = CoachingSteps2
         fields = '__all__'
 
 class CoachingStep3Serializer(serializers.ModelSerializer):
     class Meta:
-        model = CoachingStep3
+        model = CoachingSteps3
         fields = '__all__'

@@ -19,11 +19,7 @@ class College(models.Model):
 class Category(models.Model):
     name = models.CharField(blank=True, null=True)
 
-class WeekDay(models.Model):
-    day_name = models.CharField( blank=True, null=True)
 
-    def __str__(self):
-        return self.day_name
 
 class Course(models.Model):
     name = models.CharField(blank=True, null=True)
@@ -37,7 +33,7 @@ class PhotoCategory(models.Model):
 class Facility(models.Model):
     name = models.CharField(blank=True, null=True)
 
-class CoachingStep1(models.Model):
+class CoachingSteps1(models.Model):
     # Step 1: Basic Details
 
     #1. About
@@ -197,18 +193,17 @@ class CoachingStep1(models.Model):
 
     # ... add other fields for step 1
 
-class CoachingStep2(models.Model):
-    coaching_step1 = models.OneToOneField(CoachingStep1, on_delete=models.CASCADE, primary_key=True)
+class CoachingSteps2(models.Model):
 
     # Entrance Exams
-    coaching_for_exams = models.CharField( choices=[('design', 'Design'), ('engineering', 'Engineering'), ('etc', 'Etc.')],blank=True, null=True)
+    coaching_for_exams = models.TextField(blank=True, null=True)
     other_exams = models.TextField(blank=True, null=True)
 
     # Courses and Fees
-    course_for_exam = models.CharField( choices=[('course1', 'Course 1'), ('course2', 'Course 2'), ('course3', 'Course 3')],blank=True, null=True)
-    course_duration = models.CharField( choices=[('duration1', 'Duration 1'), ('duration2', 'Duration 2')],blank=True, null=True)
-    course_mode = models.CharField( choices=[('mode1', 'Mode 1'), ('mode2', 'Mode 2')],blank=True, null=True)
-    course_description = models.TextField(max_length=500 , blank=True, null=True)
+    course_for_exam = models.TextField(blank=True, null=True)
+    course_duration = models.TextField(blank=True, null=True)
+    course_mode = models.CharField( choices=[('online', 'Online'), ('offline', 'Offline')],blank=True, null=True)
+    course_description = models.TextField( blank=True, null=True)
     total_fee = models.CharField( blank=True, null=True)
     discount = models.CharField( blank=True, null=True)
     study_material_included = models.CharField( choices=[('yes', 'Yes'), ('no', 'No')],blank=True, null=True)
@@ -224,32 +219,30 @@ class CoachingStep2(models.Model):
     excel_file = models.FileField(upload_to='result_files/',blank=True, null=True)
     result_photo = models.ImageField(upload_to='result_photos/',blank=True, null=True)
     result_name = models.CharField( blank=True, null=True)
-    college_secured = models.CharField( choices=[('college1', 'College 1'), ('college2', 'College 2')],blank=True, null=True)
+    college_secured = models.TextField(blank=True, null=True)
     exam_cracked = models.CharField( choices=[('exam1', 'Exam 1'), ('exam2', 'Exam 2')],blank=True, null=True)
-    all_india_rank = models.CharField( choices=[('rank1', 'Rank 1'), ('rank2', 'Rank 2')],blank=True, null=True)
-    base_city_result = models.CharField( choices=[('city1', 'City 1'), ('city2', 'City 2')],blank=True, null=True)
+    all_india_rank = models.TextField( blank=True, null=True)
+    base_city_result = models.TextField( blank=True, null=True)
     testimonial = models.TextField( blank=True, null=True)
 
     # Faculties
     faculty_photo = models.ImageField(upload_to='faculty_photos/',blank=True, null=True)
     faculty_name = models.CharField( blank=True, null=True)
-    specialization = models.CharField( choices=[('spec1', 'Specialization 1'), ('spec2', 'Specialization 2')],blank=True, null=True)
-    background = models.CharField( choices=[('bg1', 'Background 1'), ('bg2', 'Background 2')],blank=True, null=True)
-    experience = models.CharField( choices=[('exp1', 'Experience 1'), ('exp2', 'Experience 2')],blank=True, null=True)
-    base_city_faculty = models.CharField( choices=[('city1', 'City 1'), ('city2', 'City 2')],blank=True, null=True)
+    specialization = models.TextField(blank=True, null=True)
+    background = models.TextField( blank=True, null=True)
+    experience = models.TextField( blank=True, null=True)
+    base_city_faculty = models.TextField( blank=True, null=True)
     faculty_links = models.TextField(blank=True, null=True)
 
 
 
 
-class CoachingStep3(models.Model):
-    coaching_step2 = models.OneToOneField(CoachingStep2, on_delete=models.CASCADE, primary_key=True)
-
+class CoachingSteps3(models.Model):
 
     # Photos
     photo = models.ImageField(upload_to='photos/', blank=True, null=True)
     photo_description = models.TextField( blank=True, null=True)
-    photo_category = models.ManyToManyField('PhotoCategory', blank=True)
+    photo_category = models.TextField(blank=True, null=True)
     photo_keywords_meta_tags = models.TextField( blank=True, null=True)
 
     # Videos
@@ -261,8 +254,8 @@ class CoachingStep3(models.Model):
 
     # Reviews
     review_name = models.CharField( blank=True, null=True)
-    year_of_study = models.CharField( choices=[('year1', 'Year 1'), ('year2', 'Year 2')], blank=True, null=True)
-    course_taken = models.CharField( choices=[('course1', 'Course 1'), ('course2', 'Course 2')], blank=True, null=True)
+    year_of_study = models.TextField(blank=True, null=True)
+    course_taken = models.TextField(blank=True, null=True)
     overall_rating = models.IntegerField(choices=range(1, 6), blank=True, null=True)
     competitive_environment = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)
     faculty_rating = models.IntegerField(choices=enumerate(range(1, 6)), blank=True, null=True)

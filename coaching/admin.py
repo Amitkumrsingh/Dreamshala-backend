@@ -1,9 +1,9 @@
 # coaching/admin.py
 from django.contrib import admin
-from .models import CoachingStep1, CoachingStep2, CoachingStep3
+from .models import CoachingSteps1, CoachingSteps2, CoachingSteps3
 
-@admin.register(CoachingStep1)
-class CoachingStep1Admin(admin.ModelAdmin):
+@admin.register(CoachingSteps1)
+class CoachingSteps1Admin(admin.ModelAdmin):
     list_display = ['id',
         'logo',
         'short_description',
@@ -47,11 +47,10 @@ class CoachingStep1Admin(admin.ModelAdmin):
         'latitude_loc',
         'longitude_loc',]
 
-@admin.register(CoachingStep2)
-class CoachingStep2Admin(admin.ModelAdmin):
+@admin.register(CoachingSteps2)
+class CoachingSteps2Admin(admin.ModelAdmin):
     list_display = [
-
-        'coaching_step1',
+        'id',
         'coaching_for_exams',
         'other_exams',
         'course_for_exam',
@@ -83,11 +82,10 @@ class CoachingStep2Admin(admin.ModelAdmin):
         'faculty_links',
     ]
 
-@admin.register(CoachingStep3)
-class CoachingStep3Admin(admin.ModelAdmin):
+@admin.register(CoachingSteps3)
+class CoachingSteps3Admin(admin.ModelAdmin):
     list_display = [
-
-        'coaching_step2',
+        'id',
         'photo',
         'photo_description',
         'photo_keywords_meta_tags',
