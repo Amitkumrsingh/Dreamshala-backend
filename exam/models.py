@@ -3,8 +3,9 @@
 from django.db import models
 
 EXAM_FREQUENCY_CHOICES = [
-    ('Once a year', 'Once a year'),
-    ('Twice a year', 'Twice a year'),
+    ('yearly', 'Yearly'),
+    ('quaterly', 'Quaterly'),
+    ('biannual', 'Biannual'),
     # Add more options as needed
 ]
 
@@ -118,7 +119,7 @@ class ExamStep1(models.Model):
     # Registration Details
     registration_website = models.TextField(blank=True, null=True)
     registration_mode = models.CharField( choices=REGISTRATION_MODE_CHOICES, blank=True, null=True)
-    payment_modes = models.CharField( choices=PAYMENT_MODES_CHOICES, blank=True, null=True)
+    payment_modes = models.CharField( blank=True, null=True)
 
     category = models.CharField( choices=CATEGORY_CHOICES ,blank=True, null=True)
     fee = models.DecimalField(max_digits=10, decimal_places=2,blank=True, null=True)
