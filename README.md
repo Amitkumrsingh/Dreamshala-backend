@@ -2,9 +2,7 @@
 
 In this project, we are using django as the backend framework and postgresql as the backend database.
 
-# How to create AWS CI/CD pipeline
-
-# Django CI/CD Pipeline in AWS
+## Django CI/CD Pipeline in AWS
 
 ## Why CI/CD?
 
@@ -54,14 +52,5 @@ Create two crucial configuration files in the root directory of your GitHub repo
 
 This automated pipeline triggers a release, cloning the repository, running tests, and deploying the application to the server.
 
-## Getting Started
-
-To follow this tutorial, ensure you have:
-
-- An AWS account
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
